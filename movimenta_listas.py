@@ -21,3 +21,4 @@ def lista_movimentos_possiveis(lista, po):
             if vc3==vc or nc3==nc:
                 retorno.append(3)
     return retorno 
+    
