@@ -17,7 +17,7 @@ while pm:
         for c in range(1,len(baralhon)+1):
             print (c,baralhon[c-1])
         pergunta1 = int(input('Qual carta voce quer?(digite um numero de 1 - {})  '.format(len(baralhon))))
-        if pergunta1 <= 1 or pergunta1 > 52:
+        if pergunta1 <= 1 or pergunta1 > len(baralhon):
             print('movimento invalido')
         else:
             print('A carta selecionada é {}'.format(baralhon[pergunta1-1]))
@@ -39,20 +39,28 @@ while pm:
                     empilha(baralhon,pergunta1-1, pergunta1-4)
             else:
                 print('A carta selecionada {} não pode ser movida, escolha novamente'.format(baralhon[pergunta1-1]))
-        pm = possui_movimentos_possiveis(baralhon)
-        if pm ==False:
-            jn=input('Você jogou de maneira deselegante! Quer tentar novamente? (s ou n)   ')
-            if jn=='s':
-                continue 
-            elif jn == 'n':
+            pm = possui_movimentos_possiveis(baralhon)
+    if pm ==False:
+        if c==0:
+            gn=input('Você jogou de maneira elegante! Quer jogar novamente? (sim ou nao) ')
+            if gn=='nao':
                 print('Acabou')
-                pm=False     
+                pm=False
+            elif gn == 'sim':
+                pm=True
+        else:
+            jn=input('Você jogou de maneira deselegante! Quer tentar novamente? (sim ou nao)   ')
+            if jn=='nao':
+                print('Acabou')
+                pm=False
+            elif jn == 'sim':
+                pm=True
+
+
 
               
 
-'''if len(baralhon[pergunta1])==50:
-            print('Ganhou!')
-            break ''' 
+ 
 
     
 
