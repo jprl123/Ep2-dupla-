@@ -14,11 +14,13 @@ baralhon = cria_baralho() #criando baralho
 pm = possui_movimentos_possiveis(baralhon)
 pm=True
 while pm:
-    for i in baralhon:
-        print(baralhon)
+    for i in baralhon:    
         pergunta1 = int(input('Qual carta voce quer ?(digite um numero de 1 - 52)  '))
         if pergunta1 <= 1 or pergunta1 > 52:
             print('movimento invalido')
+        if len(baralhon[pergunta1])==50:
+            print('Ganhou!')
+            break     
         else:
             print(baralhon[pergunta1-1])
             lmp=lista_movimentos_possiveis(baralhon, pergunta1-1)
@@ -32,6 +34,15 @@ while pm:
                 empilha(baralhon, pergunta1-1, pergunta1-2)
             elif lmp == [3]:
                 empilha(baralhon,pergunta1-1, pergunta1-4)
+            if pm ==False:
+                jn=input('Você jogou de maneira deselegante! Quer tentar novamente? (s ou n)   ')
+                if jn=='s':
+                    continue 
+                else:
+                    print('Acabou')
+                    pm=False     
+
+              
 
 
 

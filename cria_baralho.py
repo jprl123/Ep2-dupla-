@@ -7,7 +7,14 @@ def cria_baralho():
         baralho.append('{}♥'.format(i))
         baralho.append('{}♦'.format(i))
         baralho.append('{}♣'.format(i))
+    
+      
     random.shuffle(baralho)
+    
     return baralho
+
+print(cria_baralho())
+    
+
 
    
