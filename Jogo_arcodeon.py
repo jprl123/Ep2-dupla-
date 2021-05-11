@@ -44,7 +44,7 @@ while pm:
             jn=input('Você jogou de maneira deselegante! Quer tentar novamente? (s ou n)   ')
             if jn=='s':
                 continue 
-            else:
+            elif jn == 'n':
                 print('Acabou')
                 pm=False     
 
