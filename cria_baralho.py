@@ -10,4 +10,4 @@ def cria_baralho():
     random.shuffle(baralho)
     return baralho
 
-print(cria_baralho())      
+   

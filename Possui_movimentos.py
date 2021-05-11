@@ -20,5 +20,3 @@ def possui_movimentos_possiveis(lista):
         x+=1   
     else:
         return False
-ex = ['A♦', '10♥', 'Q♣', 'K♠', '10♣', '4♠']
-print(possui_movimentos_possiveis(ex))
