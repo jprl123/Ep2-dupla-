@@ -8,22 +8,25 @@ baralhon = cria_baralho() #criando baralho
 pm = possui_movimentos_possiveis(baralhon)
 pm=True
 while pm:
-    pergunta1 = int(input('Qual carta voce quer ?(digite um numero de 1 - 52)  '))
-    carta=baralhon[pergunta1 - 1]
-    ali= int(pergunta1)
-    if pergunta1 <= 1 or pergunta1 > 52:
-        print('movimento invalido')
-    lmp=lista_movimentos_possiveis(baralhon, ali)
-    if lmp == [1, 3]:
-        pergunta2=input('Você quer empilhar 1 ou 3?')
-        if pergunta2 == '1':
-            empilha(baralhon, baralhon[pergunta1], baralhon[pergunta1-1])
-        elif pergunta2 == '3':
-            empilha(baralhon, baralhon[pergunta1], baralhon[pergunta1-3])
-    elif lmp == [1]:
-        empilha(baralhon, baralhon[pergunta1], baralhon[pergunta1-1])
-    elif lmp == [3]:
-        empilha(baralhon, baralhon[pergunta1], baralhon[pergunta1-3])
+    for i in baralhon:
+        pergunta1 = int(input('Qual carta voce quer ?(digite um numero de 1 - 52)  '))
+        
+        if pergunta1 <= 1 or pergunta1 >= 52:
+            print('movimento invalido')
+        print(baralhon)
+        print(baralhon[pergunta1-1])
+        lmp=lista_movimentos_possiveis(baralhon, pergunta1-1)
+        if lmp == [1, 3]:
+            pergunta2=input('Você quer empilhar 1 ou 3?')
+            if pergunta2 == '1':
+                empilha(baralhon, pergunta1-1, pergunta1-2)
+            elif pergunta2 == '3':
+                empilha(baralhon, pergunta1-1, pergunta1-4)
+        elif lmp == [1]:
+            empilha(baralhon, pergunta1-1, pergunta1-2)
+        elif lmp == [3]:
+            empilha(baralhon,pergunta1-1, pergunta1-4)
+        print('o estado atual do baralho é {}'.format(baralhon-1))
 
 
 
