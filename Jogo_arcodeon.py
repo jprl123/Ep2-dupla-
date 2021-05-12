@@ -72,7 +72,7 @@ while pm:
                 print('A carta selecionada {} não pode ser movida, escolha novamente'.format(baralhon[pergunta1-1]))
     if len(baralhon) == 1:
         print('Você jogou de maneira elegante! Parabéns')
-    elif:
+    else:
         print('Que pena, você jogou de maneira deselegante!')
     gn=input('Quer jogar novamente? (sim ou nao) ')
     if gn == 'sim':
