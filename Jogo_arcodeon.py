@@ -50,15 +50,16 @@ while pm:
             print('Movimento Invalido')
             continue
         else:
-            print('A carta selecionada é {}'.format(baralhon[pergunta1-1]))
+            print(RED+('A carta selecionada é {}'.format(baralhon[pergunta1-1])) +RESET)
             lmp=lista_movimentos_possiveis(baralhon, pergunta1-1)
             if lmp == [1, 3]:
                 print('Você quer empilhar a carta {} em qual posicao? '.format(baralhon[pergunta1-1]))
                 print(RED+('1. {}'.format(baralhon[pergunta1-2])+RESET))
                 print(BLUE+('2. {}'.format(baralhon[pergunta1-4])+RESET))
                 pergunta2 =input('Qual opção voce deseja? ')
-                if pergunta2 != 1 or pergunta2 !=2:
+                while pergunta2 < '1' or pergunta2 > '2':
                     print('opção invalida')
+                    pergunta2 =input('Qual opção voce deseja? ')
                 if pergunta2 == '1':
                     empilha(baralhon, pergunta1-1, pergunta1-2)
                 elif pergunta2 == '2':
@@ -69,9 +70,30 @@ while pm:
                     empilha(baralhon,pergunta1-1, pergunta1-4)
             else:
                 print('A carta selecionada {} não pode ser movida, escolha novamente'.format(baralhon[pergunta1-1]))
+            pm = possui_movimentos_possiveis(baralhon)
+
+    if pm == False:
+        if len(baralhon) == 1:
+            print('Você jogou de maneira elegante! Parabéns')
+        else:
+            print('Que pena, você jogou de maneira deselegante!')
+        gn=input('Quer jogar novamente? (sim ou nao) ')
+        if gn == 'sim':
+            print('-----------------------------------------------------------------------------------------')
+            baralhon = cria_baralho() 
+            continue
+        elif gn == 'nao':
+            break
+'''print('Obrigado por jogar!!!')    
+            jn=input('Você jogou de maneira deselegante! Quer tentar novamente? (s ou n)   ')
+            elif jn=='s':
+                baralhon = cria_baralho()
+                continue 
+            elif jn == 'n':
+                break
     if len(baralhon) == 1:
         print('Você jogou de maneira elegante! Parabéns')
-    else:
+    elif:
         print('Que pena, você jogou de maneira deselegante!')
     gn=input('Quer jogar novamente? (sim ou nao) ')
     if gn == 'sim':
@@ -79,7 +101,8 @@ while pm:
         baralhon = cria_baralho() 
         continue
     elif gn == 'nao':
-        break
+        break'''
+
 print('Obrigado por jogar!!!')
     
     
